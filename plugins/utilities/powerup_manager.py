@@ -2947,7 +2947,7 @@ class PowerupManagerWindow(PopupWindow):
 
 
 class UltimatePowerupManager(babase.Plugin):
-#    ProfileBrowserWindow = NewProfileBrowserWindow
+    #    ProfileBrowserWindow = NewProfileBrowserWindow
     pupbox.PowerupBoxFactory = NewPowerupBoxFactory
     pupbox.PowerupBox.__init__ = _pbx_
     Bomb.__init__ = _bomb_init

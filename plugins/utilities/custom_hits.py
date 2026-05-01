@@ -20,13 +20,13 @@ plugman = dict(
     ],
     version="1.1.0",
 )
-#___________________________________________________
+# ___________________________________________________
 
-first_damage  = (u'NAH NOOB?', (1, 1, 1),    '6')
+first_damage = (u'NAH NOOB?', (1, 1, 1),    '6')
 second_damage = (u'GOOD!',       (0, 1, 0),    '2')
-third_damage  = (u'DAMN!',       (0, 0, 0),'3')
+third_damage = (u'DAMN!',       (0, 0, 0), '3')
 fourth_damage = (u'SRY NOOB',        (1, 1, 0),    '4')
-five_damage   = (u'FAH!!!',      (1, 0, 0),    '5')
+five_damage = (u'FAH!!!',      (1, 0, 0),    '5')
 
 
 def custom_effects(pos: float, effect: str = None) -> None:
@@ -91,4 +91,3 @@ class byATD(babase.Plugin):
     except Exception:
         pass
     bs.broadcastmessage(u' || WELCOME || ', color=(0, 1, 0))
-      
