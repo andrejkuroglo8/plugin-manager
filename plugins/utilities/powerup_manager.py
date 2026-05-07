@@ -34,7 +34,7 @@ plugman = dict(
     authors=[
         {"name": "ATD", "email": "anasdhaoidi001@gmail.com", "discord": ""},
     ],
-    version="1.0.0",
+    version="1.0.1",
 )
 
 
@@ -593,10 +593,10 @@ class NewProfileBrowserWindow:
                 position=(position[0] + 25, position[1] + 10),
                 size=(0, 0),
                 scale=0.45,
-                color=(0.7, 0.9, 0.7, 1.0),
+                color=(0.5, 0.5, 0.5, 0.5),
                 draw_controller=self.button,
                 maxwidth=60,
-                text=(f"Ultimate Powerup {_sp_}Manager"),
+                text=(f"powerups manager 1.1.1"),
                 h_align='center',
                 v_align='center',
             )
@@ -708,7 +708,7 @@ def _bomb_init(
             'shield', owner=self.node, attrs={'color': (6.5, 6.5, 2.0), 'radius': 0.6}
         )
         self.node.connectattr('position', self.shield_fire, 'position')
-        self.fire_effect_time = bs.Timer(0.1, bs.WeakCallPartial(fire_effect, self), repeat=True)
+        self.fire_effect_time = bs.Timer(0.1, bs.CallPartial(fire_effect, self), repeat=True)
     elif self.bm_type == 'impairment':
         self.bomb_type = self.bm_type
         tex = bs.gettexture('eggTex3')
@@ -1410,7 +1410,7 @@ def new_handlemessage(self, msg: Any) -> Any:
             damage = 103
             if not self.shield:
                 for firex in range(duration):
-                    bs.timer(index, bs.WeakCallPartial(fire, index, damage))
+                    bs.timer(index, bs.CallPartial(fire, index, damage))
                     self._fire_time = bs.Timer(0.1, babase.CallPartial(fire_effect), repeat=True)
                     index += 1
             else:
@@ -1836,20 +1836,20 @@ class PowerupManagerWindow(PopupWindow):
         ]
 
         self.tabdefs = {
-            "Action 1": ['powerupIceBombs', (1, 1, 1)],
-            "Action 2": ['settingsIcon', (0, 1, 0)],
+            "Action 1": ['levelIcon', (1, 1, 1)],
+            "Action 2": ['settingsIcon', (1, 1, 1)],
             "Action 3": ['inventoryIcon', (1, 1, 1)],
             "Action 4": ['storeIcon', (1, 1, 1)],
             "Action 5": ['advancedIcon', (1, 1, 1)],
-            "About": ['heart', (1.5, 0.3, 0.3)],
+            "About": ['achievementEmpty', (1, 1, 1)],
         }
 
         if STORE['Buy Firebombs'] and STORE['Buy Option'] and STORE['Buy Percentage']:
             self.tabdefs = {
-                "Action 1": ['powerupIceBombs', (1, 1, 1)],
-                "Action 2": ['settingsIcon', (0, 1, 0)],
+                "Action 1": ['levelIcon', (1, 1, 1)],
+                "Action 2": ['settingsIcon', (1, 1, 1)],
                 "Action 3": ['inventoryIcon', (1, 1, 1)],
-                "About": ['heart', (1.5, 0.3, 0.3)],
+                "About": ['achievementEmpty', (1, 1, 1)],
             }
 
         self.listdef = list(self.tabdefs)
@@ -2748,10 +2748,11 @@ class PowerupManagerWindow(PopupWindow):
                 position=(110, v - 20),
                 size=(width, 50),
                 scale=1.4,
-                color=(0.2, 1.2, 0.2),
+                big=True,
+                color=(0.5, 0.5, 0.5),
                 h_align="center",
                 v_align="center",
-                text=("Ultimate Powerup Manager v2.5"),
+                text=("powerup manager 1.1.1"),
                 maxwidth=width * 30,
             )
 
@@ -2942,25 +2943,11 @@ class PowerupManagerWindow(PopupWindow):
         babase.app.classic.profile_browser_window()
 
 
-def add_plugin():
-    try:
-        from baBearModz import BearPlugin
-    except Exception as e:
-        return bs.timer(2.5, lambda e=e: bs.broadcastmessage('Error plugin: ' + str(e), (1, 0, 0)))
-    BearPlugin(
-        icon='logo',
-        creator='UPDATE TO API 9 BY ATD(anas) and less',
-        button_color=(1, 1, 0),
-        plugin=UltimatePowerupManager,
-        window=PowerupManagerWindow,
-    )
-
-
 # ba_meta export babase.Plugin
 
 
 class UltimatePowerupManager(babase.Plugin):
-    # browser.ProfileBrowserWindow = NewProfileBrowserWindow
+    #    ProfileBrowserWindow = NewProfileBrowserWindow
     pupbox.PowerupBoxFactory = NewPowerupBoxFactory
     pupbox.PowerupBox.__init__ = _pbx_
     Bomb.__init__ = _bomb_init

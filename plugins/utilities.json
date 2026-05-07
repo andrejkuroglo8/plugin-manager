@@ -2387,6 +2387,12 @@
         }
       ],
       "versions": {
+        "1.0.1": {
+          "api_version": 9,
+          "commit_sha": "023b733",
+          "released_on": "01-05-2026",
+          "md5sum": "045eb589b2969398f7fcb171216303d1"
+        },
         "1.0.0": {
           "api_version": 9,
           "commit_sha": "f38a7ac",
@@ -2396,7 +2402,7 @@
       }
     },
     "custom_hits": {
-      "description": "when someone hited rainbow text whit effect will appear",
+      "description": "when someone hited text whit  random effect will appear",
       "external_url": "",
       "authors": [
         {
@@ -2406,6 +2412,12 @@
         }
       ],
       "versions": {
+        "1.1.0": {
+          "api_version": 9,
+          "commit_sha": "023b733",
+          "released_on": "01-05-2026",
+          "md5sum": "bc39a552ab7f40a71ce2813f7860a62f"
+        },
         "1.0.1": {
           "api_version": 9,
           "commit_sha": "b48a4bd",
@@ -2536,6 +2548,25 @@
           "commit_sha": "38f9e35",
           "released_on": "09-03-2026",
           "md5sum": "f2b1b542cf8cb7b633c5b460966bd26c"
+        }
+      }
+    },
+    "rank_system": {
+      "description": "ranks system for servers or for local players",
+      "external_url": "",
+      "authors": [
+        {
+          "name": "ATD",
+          "email": "anasdhaoidi001@gmail.com",
+          "discord": ""
+        }
+      ],
+      "versions": {
+        "1.0.0": {
+          "api_version": 9,
+          "commit_sha": "023b733",
+          "released_on": "01-05-2026",
+          "md5sum": "487c0520dc833f15942941e0dbc82f1e"
         }
       }
     }
