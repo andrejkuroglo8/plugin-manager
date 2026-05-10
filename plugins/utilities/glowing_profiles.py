@@ -4,7 +4,6 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 import babase
 import _babase
-
 import bascenev1 as bs
 from types import FunctionType
 import enum
