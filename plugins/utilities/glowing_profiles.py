@@ -11,7 +11,7 @@ import enum
 
 if TYPE_CHECKING:
     from typing import Type, Callable, Any, Tuple
-    
+
 plugman = dict(
     plugin_name="glowing_profiles",
     description="This plugin gives your profile glowlight, just like on some servers, but only offline",
@@ -21,6 +21,7 @@ plugman = dict(
     ],
     version="1.0.0",
 )
+
 
 def redefine_method(dst: Tuple[Any, str], src: Tuple[Any, str]) -> None:
     if hasattr(getattr(*src), '__redefine_type') and getattr(*src).__redefine_type in (
@@ -81,6 +82,7 @@ def redefine_class_methods(orig_cls: Type[object]) -> Callable[[Any], None]:
 
     return decorator
 
+
 class RedefineFlag(enum.Enum):
     REDEFINE = 0
     DECORATE_AFTER = 1
@@ -98,6 +100,7 @@ def redefine_flag(*flags: RedefineFlag) -> Callable[[Callable], Callable]:
         return func
 
     return decorator
+
 
 def get_locale(*args):
     return "Error"
@@ -213,5 +216,7 @@ class Chooser:
         self._update_text()
 
 # ba_meta export babase.Plugin
+
+
 class Glowing(babase.Plugin):
-	pass
+    pass
